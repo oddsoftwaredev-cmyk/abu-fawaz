@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>أبو فواز — نظام إدارة الأعمال</title>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#f6f5f1;--card:#fdfdfb;--soft:#f3f2ee;--modal:#fdfdfb;--ink:#14231c;--mut:#66726b;--line:#e4e2db;--g:#1e4e3b;--g2:#17402f;--side:#142922;--side2:#253f34;--sline:rgba(255,255,255,.09);--gold:#eca527;--red:#b83a2e;--sh:0 1px 2px rgba(18,40,33,.05),0 4px 14px rgba(18,40,33,.04);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html,body{margin:0}[hidden]{display:none!important}
+body{font-family:'Readex Pro','IBM Plex Sans Arabic',Tahoma,system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.5}
+button,input,select,textarea{font:inherit}
+.app{display:grid;grid-template-columns:320px 1fr;min-height:100vh}
+aside{background:var(--side);color:#fff;border-left:1px solid var(--sline);position:sticky;top:0;height:100vh;display:flex;flex-direction:column}
+.brand{display:flex;align-items:center;gap:22px;padding:0 28px;height:100px;border-bottom:1px solid var(--sline);color:#fff}
+.brand b{display:block;font-size:17px;color:#fff;font-weight:600}.brand small{color:#9fb3a8;font-size:12px;font-weight:300}
+.co{padding:22px 28px;border-bottom:1px solid var(--sline)}.co b{display:block;color:#fff;font-size:15px;font-weight:600}.co span{color:#9fb3a8;font-size:13px;font-weight:300}
+.lbl{padding:20px 28px 10px;font-size:12px;color:#8ba196}
+nav{padding:0 14px}
+nav a{display:flex;align-items:center;gap:14px;height:50px;padding:0 18px;border-radius:12px;color:#dbe5df;text-decoration:none;font-weight:400;position:relative;cursor:pointer;border:1.5px solid transparent;margin-bottom:4px}
+nav a svg{color:#8ba196}
+nav a:hover{background:rgba(255,255,255,.05)}
+nav a.on{background:var(--side2);border-color:rgba(255,255,255,.18);color:#fff;font-weight:600}nav a.on svg{color:var(--gold)}
+nav a.on:after{content:"";position:absolute;right:7px;top:50%;margin-top:-13px;width:4px;height:26px;border-radius:4px;background:var(--gold)}
+.note{margin-top:auto;height:90px;padding:0 28px;border-top:1px solid var(--sline);display:flex;align-items:center}
+.lo{display:inline-flex;align-items:center;gap:10px;background:none;border:1px solid var(--sline);color:#c9d6ce;height:40px;padding:0 16px;border-radius:8px;cursor:pointer;font-size:13.5px;font-weight:400}
+.lo:hover{background:rgba(255,255,255,.06);color:#fff}
+.col{display:flex;flex-direction:column;min-width:0;min-height:100vh}
+.wrap{flex:1;padding:48px clamp(16px,6.25vw,120px) 64px;width:100%}
+footer{height:90px;background:var(--side);border-top:1px solid var(--sline);display:flex;align-items:center;justify-content:center;gap:18px;direction:ltr;color:#e9efe9;font-size:15px;font-weight:300}
+footer b{font-weight:700}
+.crumb{display:flex;align-items:center;gap:7px;color:var(--mut);font-size:13px;font-weight:500}
+h1,h2.t{font-size:36px;font-weight:700;margin:6px 0 4px;letter-spacing:-.3px;line-height:1.3}
+.sub{color:var(--mut);margin:0;font-size:15px;font-weight:300}
+.head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:26px;border-bottom:1px solid var(--line);margin-bottom:26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--sh)}
+.ch{padding:22px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.ch small{color:var(--mut);font-size:12.5px;display:block;font-weight:400}.ch h2{margin:2px 0 0;font-size:22px;font-weight:700}
+.cb{padding:26px 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);height:44px;padding:0 20px;border-radius:8px;font-weight:500;cursor:pointer;font-size:15px}
+.btn:hover{background:var(--soft)}.btn:disabled{opacity:.45;cursor:default}
+.btn.p{background:var(--g);border:1px solid var(--g);color:#fff;font-weight:600;height:48px}.btn.p:hover{background:var(--g2)}
+.btn.p svg{color:#fff}
+.btn.d{background:var(--red);border-color:var(--red);color:#fff}
+.sm{height:38px;padding:0 14px;font-size:13px;color:#8c968f}
+.ib{border:0;background:none;color:var(--ink);padding:9px;border-radius:8px;cursor:pointer;display:grid;place-items:center}.ib:hover{background:var(--soft)}.ib.r{color:var(--red)}
+label{display:block;font-weight:600;font-size:14px;margin-bottom:8px}label i{color:var(--red);font-style:normal}label em{font-weight:300;color:var(--mut);font-style:normal;font-size:12.5px}
+input,select,textarea{width:100%;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:0 14px;height:46px;outline:0;font-size:14.5px}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238a948d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 14px center;padding-left:38px;cursor:pointer}
+input:focus,select:focus,textarea:focus{border-color:var(--g);box-shadow:0 0 0 3px rgba(30,78,59,.14)}
+textarea{height:96px;padding:12px 14px;resize:vertical}
+input::placeholder{color:#8a948d}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}.fld{margin-bottom:0}.g2.m{margin-bottom:18px}
+.seg{display:inline-flex;background:#ebeae5;padding:4px;border-radius:10px;gap:2px}
+.seg button{border:0;background:none;font-weight:500;color:var(--mut);height:34px;padding:0 20px;border-radius:7px;cursor:pointer;font-size:14px}
+.seg button.on{background:var(--g);color:#fff;font-weight:600}
+.sum{display:grid;grid-template-columns:repeat(3,1fr);background:var(--soft);border-radius:8px;margin:20px 0 16px;border:1px solid var(--line)}
+.sum div{padding:14px 18px}.sum span{font-size:12px;color:var(--mut);display:block;font-weight:300}.sum b{font-size:20px;font-weight:500}
+.fh{font-size:12.5px;color:var(--mut);margin-top:6px;font-weight:300}
+.hint{font-size:12.5px;color:var(--mut);margin:0 0 20px;font-weight:300}
+.cols{display:grid;grid-template-columns:.82fr 1fr;gap:26px;align-items:start;direction:rtl}
+.cols>.fcard{order:0}
+.empty{text-align:center;padding:54px 20px;color:var(--mut);font-weight:300;font-size:14px}.empty .ci{width:56px;height:56px;border-radius:50%;background:var(--soft);display:grid;place-items:center;margin:0 auto 18px;color:var(--g)}.empty b{display:block;color:var(--ink);font-size:19px;margin-bottom:6px;font-weight:600}
+.tx{display:flex;gap:12px;align-items:center;padding:16px 28px;border-bottom:1px solid var(--line)}.tx:last-child{border:0}
+.tx .m{flex:1;min-width:0}.tx .m b{display:block;font-weight:600}.tx .m span{font-size:12.5px;color:var(--mut)}
+.bd{display:inline-flex;align-items:center;gap:7px;padding:2px 10px;border-radius:6px;font-size:12px;font-weight:600;background:#e4ece7;color:var(--g);border:1px solid #cddbd2;white-space:nowrap}
+.bd.dot:before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.bd.s{background:#f8ecd2;color:#8a5a0a;border-color:#ecd9ab}.bd.x{background:#f6e1de;color:var(--red);border-color:#ecc3be}
+.tabs{display:flex;gap:8px;padding:22px 0;border-bottom:1px solid var(--line);margin-bottom:24px}
+.tabs button{display:inline-flex;gap:10px;align-items:center;height:50px;border:1px solid transparent;background:var(--card);box-shadow:var(--sh);font-weight:600;color:#3d4a43;padding:0 24px;border-radius:12px;cursor:pointer;font-size:15px}
+.tabs button.on{background:var(--g);color:#fff;border-color:var(--g)}
+.sec{display:flex;justify-content:space-between;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:24px}
+.filters{display:flex;gap:14px;margin-bottom:22px}
+.sw{position:relative;flex:1}.sw svg{position:absolute;right:14px;top:14px;color:#6b776f}.sw input{padding-right:42px}
+.filters select{width:200px;flex:none}.filters select#fu{width:250px}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+th{background:var(--soft);color:var(--mut);font-size:13.5px;font-weight:500;text-align:right;padding:16px 24px;height:56px}
+td{padding:0 24px;height:66px;border-top:1px solid var(--line);font-size:14.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+tbody td,.rows td{background:var(--card)}
+.tw{overflow-x:auto}.tbl{overflow:hidden;border-radius:12px}
+.acts{display:flex;gap:4px;justify-content:flex-start}
+.pg{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-top:1px solid var(--line);color:var(--mut);font-size:13.5px;font-weight:300;background:var(--card)}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;direction:ltr;display:inline-block}
+.sk{height:52px;border-radius:8px;background:linear-gradient(90deg,var(--soft),var(--line),var(--soft));background-size:200%;animation:sh 1.2s infinite;margin-bottom:12px}
+@keyframes sh{to{background-position:-200%}}
+.ov{position:fixed;inset:0;background:rgba(10,25,19,.72);display:grid;place-items:center;padding:16px;z-index:50}
+.md{background:var(--modal);border-radius:12px;width:100%;max-width:840px;padding:30px 32px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.md h3{margin:0 0 4px;font-size:22px;font-weight:700;text-align:left}.md .sub{font-size:14px;margin-bottom:26px;text-align:left}
+.md .x{position:absolute;right:20px;top:22px;color:#58645d}
+.mf{display:flex;gap:12px;margin-top:22px}.mf .btn{height:44px;padding:0 24px}
+.dl dt{color:var(--mut);font-size:13px;margin-top:14px}.dl dd{margin:2px 0 0;font-weight:600}
+#toast{position:fixed;bottom:110px;left:50%;transform:translateX(-50%);background:var(--side);color:#fff;padding:12px 22px;border-radius:10px;font-weight:500;z-index:99;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.err{color:var(--red);font-size:13px;margin:0 0 14px}
+.endrow{display:flex;justify-content:flex-start}
+/* ---- login ---- */
+#login{min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--side);position:relative;overflow:hidden}
+#login:before{content:"";position:absolute;inset:auto auto -120px -120px;width:420px;height:420px;border-radius:50%;border:1px solid var(--sline)}
+#login:after{content:"";position:absolute;inset:-160px -160px auto auto;width:520px;height:520px;border-radius:50%;border:1px solid var(--sline)}
+.lc{position:relative;z-index:1;width:100%;max-width:420px;background:var(--card);border-radius:16px;padding:40px 36px 34px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.lm{width:64px;height:64px;border-radius:16px;background:var(--g);color:#fff;display:grid;place-items:center;margin:0 auto 22px}
+.lc h1{font-size:26px;text-align:center;margin:0 0 4px}.lc .sub{text-align:center;margin-bottom:28px;font-size:14px}
+.lc .fld{margin-bottom:16px}
+.lc .btn.p{width:100%;margin-top:6px}
+.lc .err{min-height:20px;margin:0 0 6px;text-align:center}
+.lf{margin-top:22px;text-align:center;font-size:12px;color:var(--mut);font-weight:300;direction:ltr}.lf b{font-weight:700}
+@media(max-width:900px){.app{display:block}aside{position:static;height:auto}.co,.note,.lbl{display:none}.brand{height:76px}nav{display:flex;overflow-x:auto;padding:8px 10px}nav a{white-space:nowrap}nav a.on:after{display:none}.wrap{padding:24px 16px}.cols{grid-template-columns:1fr}h1,h2.t{font-size:27px}.g2{grid-template-columns:1fr}.filters{flex-wrap:wrap}.filters select{width:100%!important}.head,.sec{flex-wrap:wrap}footer{height:76px}.tabs{overflow-x:auto}.mob-lo{display:inline-flex!important}}
+.mob-lo{display:none;margin:0 14px 10px}
+</style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+</head>
+<body>
+<!-- ===== صفحة الدخول ===== -->
+<div id="login" hidden><div class="lc">
+<div class="lm"><svg width="40" height="18" viewBox="0 0 120 44" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"><circle cx="19" cy="26" r="12.5"/><circle cx="55" cy="26" r="12.5"/><path d="M67.5 4v33"/><circle cx="92" cy="26" r="12.5"/><path d="M104.5 4v33"/></svg></div>
+<h1>أبو فواز</h1><p class="sub">سجّل دخولك للمتابعة</p>
+<form id="lf" autocomplete="on" novalidate>
+<div class="fld"><label for="l-user">اسم المستخدم</label><input id="l-user" name="username" autocomplete="username" autocapitalize="off" spellcheck="false" placeholder="أدخل اسم المستخدم"></div>
+<div class="fld"><label for="l-pass">كلمة المرور</label><input id="l-pass" name="password" type="password" autocomplete="current-password" placeholder="أدخل كلمة المرور"></div>
+<div class="err" id="l-err" role="alert"></div>
+<button class="btn p" type="submit">دخول</button>
+</form>
+<div class="lf">Developed by <b>odd</b> | software agency</div>
+</div></div>
+
+<div class="app" hidden>
+<aside>
+<div class="brand"><svg width="70" height="30" viewBox="0 0 120 44" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"><circle cx="19" cy="26" r="12.5"/><circle cx="55" cy="26" r="12.5"/><path d="M67.5 4v33"/><circle cx="92" cy="26" r="12.5"/><path d="M104.5 4v33"/></svg><div><b>أبو فواز</b><small>نظام إدارة الأعمال</small></div></div>
+<div class="co"><b>شركة أبو فواز</b><span>الوضع: مسجّل دخول</span></div>
+<div class="lbl">دفتر العمل</div>
+<nav id="nav"></nav>
+<div class="note"><button class="lo" data-logout>تسجيل الخروج</button></div>
+</aside>
+<div class="col"><div class="wrap" id="view"></div>
+<footer><span>Developed by <b>odd</b> | software agency</span><svg width="40" height="17" viewBox="0 0 120 44" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"><circle cx="19" cy="26" r="12.5"/><circle cx="55" cy="26" r="12.5"/><path d="M67.5 4v33"/><circle cx="92" cy="26" r="12.5"/><path d="M104.5 4v33"/></svg></footer></div>
+</div><div id="modal"></div>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const nf=new Intl.NumberFormat('ar-EG',{maximumFractionDigits:0}),qf=new Intl.NumberFormat('ar-EG',{maximumFractionDigits:3}),cf=new Intl.NumberFormat('ar-EG');
+const UN={none:'بدون',pack:'عبوة',ton:'طن',kg:'كيلوجرام'},WH='المخزن الرئيسي',PS=10;
+const P={book:'M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2zM22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z',tx:'M5 3h14v18l-2-1.5L15 21l-2-1.5L11 21l-2-1.5L7 21l-2-1.5zM12 7v10M14.5 9.3c-.4-.8-1.3-1.3-2.5-1.3-1.4 0-2.3.7-2.3 1.7 0 2.4 5 1.1 5 3.6 0 1-1 1.7-2.4 1.7-1.2 0-2.2-.4-2.6-1.3',layers:'M12 3 2.5 8 12 13l9.5-5zM2.5 12.5 12 17.5l9.5-5M2.5 17 12 22l9.5-5',users:'M16 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1M9.5 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M21 20v-1a4 4 0 0 0-3-3.9M16 4.1a3.5 3.5 0 0 1 0 6.8',boxes:'M12 2.5l4 2.3v4.4l-4 2.3-4-2.3V4.8zM7 12.5l4 2.3v4.4l-4 2.3-4-2.3v-4.4zM17 12.5l4 2.3v4.4l-4 2.3-4-2.3v-4.4zM8 4.8l4 2.3 4-2.3',box:'M21 8 12 3 3 8v8l9 5 9-5zM3 8l9 5 9-5M12 13v8',wh:'M3 21V9l9-5 9 5v12M7 21v-7h10v7M7 17h10',plus:'M12 5v14M5 12h14',plusc:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 8v8M8 12h8',edit:'M4 20h4L19 9l-4-4L4 16zM13 7l4 4',eye:'M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6',arch:'M3 4h18v4H3zM5 8v12h14V8M10 12h4',trash:'M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v5M14 11v5',ref:'M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7',x:'M6 6l12 12M18 6 6 18',search:'M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-4.3-4.3',cl:'M15 6l-6 6 6 6',cr:'M9 6l6 6-6 6'};
+const ic=(n,s=18)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${P[n]}"/></svg>`;
+const S={items:[],customers:[],tx:[]};let db=null,ready=false,route=(location.hash.slice(1)||'tx'),tab='items',F={q:'',status:'active',unit:'',page:1},mode='purchase';
+const CFG=window.CFG||{};let sb=null;
+
+/* ================= الدخول =================
+   اكتب اسم المستخدم وكلمة المرور الثابتين هنا (أو في config.js بالأسماء loginUser و loginPass).
+   لو غيّرتهم بعدين، كل الأجهزة المسجّلة هتطلب دخول من جديد. */
+const AUTH_USER=CFG.loginUser||'abofawaz';
+const AUTH_PASS=CFG.loginPass||'123456';
+/* ================================================ */
+const LS={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}},del:k=>{try{localStorage.removeItem(k)}catch(e){}}};
+const DEV_KEY='abf_device';
+function authToken(){let h=5381;const s=AUTH_USER+'|'+AUTH_PASS+'|abf';for(let i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))|0;return 'v1.'+(h>>>0).toString(36)}
+const deviceTrusted=()=>LS.get(DEV_KEY)===authToken();
+
+const MAP={items:'items',customers:'customers',tx:'transactions'};
+const fromRow={tx:r=>({id:r.id,type:r.type,date:r.tx_date,itemId:r.item_id,customerId:r.customer_id||'',qty:+r.qty,price:+r.price,total:+r.total,paid:+r.paid,wh:r.wh,at:r.created_at})};
+const toRow={tx:o=>({id:o.id,type:o.type,tx_date:o.date,item_id:o.itemId,customer_id:o.customerId||null,qty:o.qty,price:o.price,total:o.total,paid:o.paid,wh:o.wh})};
+async function load(){for(const n in S){const{data,error}=await sb.from(MAP[n]).select('*').order('created_at',{ascending:false});if(error){toast('تعذّر تحميل البيانات');throw error}S[n]=data.map(fromRow[n]||(r=>r))}ready=true}
+async function put(n,o){if(n!='tx')o={...o,updated_at:new Date().toISOString()};const{error}=await sb.from(MAP[n]).upsert((toRow[n]||(x=>x))(o));if(error)throw error;await load();render()}
+async function del(n,id){const{error}=await sb.from(MAP[n]).delete().eq('id',id);if(error)throw error;await load();render()}
+const uid=()=>crypto.randomUUID?crypto.randomUUID():Date.now()+''+Math.random().toString(16).slice(2);
+function toast(m){let t=$('#toast');t&&t.remove();t=document.createElement('div');t.id='toast';t.textContent=m;document.body.append(t);setTimeout(()=>t.remove(),2600)}
+const item=id=>S.items.find(i=>i.id==id),cust=id=>S.customers.find(c=>c.id==id);
+const fd=d=>d?new Date(d+'T00:00:00').toLocaleDateString('ar-EG',{day:'numeric',month:'short',year:'numeric'}):'';
+function balances(){const m={};S.tx.forEach(t=>m[t.itemId]=(m[t.itemId]||0)+(t.type=='purchase'?1:-1)*t.qty);return m}
+function owed(cid){return S.tx.filter(t=>t.type=='sale'&&t.customerId==cid).reduce((a,t)=>a+t.total-t.paid,0)}
+const sk=()=>'<div class="sk"></div>'.repeat(5);
+const empty=(i,t,s)=>`<div class="empty"><div class="ci">${ic(i,26)}</div><b>${t}</b>${s}</div>`;
+const head=(c,i,t,s,r='')=>`<div class="head"><div><div class="crumb">${c}${i?ic(i,16):''}</div><h1>${t}</h1><p class="sub">${s}</p></div>${r}</div>`;
+function nav(){$('#nav').innerHTML=[['tx','العمليات','tx'],['stock','المخزون','layers'],['data','الأصناف والعملاء','boxes']].map(([r,t,i])=>`<a class="${route==r?'on':''}" data-go="${r}">${ic(i,20)}${t}</a>`).join('')+`<a class="mob-lo" data-logout style="display:none">${ic('x',18)}خروج</a>`}
+function render(){nav();$('#view').innerHTML=!ready?sk():route=='stock'?vStock():route=='data'?vData():vTx()}
+/* ---- transactions ---- */
+function vTx(){
+const its=S.items.filter(i=>i.status!='archived'),cs=S.customers.filter(c=>c.status!='archived'),sale=mode=='sale';
+const hist=[...S.tx].sort((a,b)=>(b.date+b.at).localeCompare(a.date+a.at)).slice(0,30);
+return head('دفتر أبو فواز','book','دفتر العمليات','سجّل البيع والشراء وقت حدوثهما. سعر كل عملية يبقى كما شُجّل.')+`<div class="cols">
+<div class="card fcard"><div class="ch"><div><small>قيد جديد</small><h2>اكتبها في الدفتر</h2></div><div class="seg"><button data-mode="purchase" class="${sale?'':'on'}">شراء</button><button data-mode="sale" class="${sale?'on':''}">بيع</button></div></div>
+<div class="cb"><div class="g2 m"><div class="fld"><label>التاريخ</label><input type="date" id="f-date" value="${new Date().toISOString().slice(0,10)}"></div>
+<div class="fld"><label>الصنف</label><select id="f-item"><option value="">${its.length?'اختر الصنف':'أضف صنفًا أولًا'}</option>${its.map(i=>`<option value="${i.id}">${esc(i.name)} (${UN[i.unit]})</option>`).join('')}</select></div>
+<div class="fld"><label>الكمية</label><input type="number" id="f-qty" min="0" step="any" placeholder="أدخل الكمية"></div>
+<div class="fld"><label>سعر الوحدة <em>— لهذه العملية فقط</em></label><input type="number" id="f-price" min="0" step="1" placeholder="أدخل السعر"></div>
+${sale?`<div class="fld"><label>العميل</label><select id="f-cust"><option value="">${cs.length?'اختر العميل':'أضف عميلًا أولًا'}</option>${cs.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join('')}</select></div>`:''}
+<div class="fld"><label>المبلغ المدفوع</label><input type="number" id="f-paid" min="0" step="1" placeholder="تلقائي"><div class="fh">تلقائي: يتسجل المبلغ كامل، لحد ما تكتب مبلغ أقل.</div></div></div>
+<div class="sum"><div><span>الإجمالي</span><b id="s-t">${nf.format(0)}</b></div><div><span>المدفوع</span><b id="s-p">${nf.format(0)}</b></div><div><span>${sale?'المتبقي على العميل':'المتبقي'}</span><b id="s-r">${nf.format(0)}</b></div></div>
+<p class="hint">السعر المحفوظ في هذه العملية مستقل عن السعر الحالي للصنف، ولا يغيّره.</p><div class="err" id="f-err"></div>
+<div class="endrow"><button class="btn p" data-save>${ic('plusc',18)}حفظ العملية</button></div></div></div>
+<div class="card"><div class="ch"><div><small>آخر ما دُوِّن</small><h2>سجل العمليات</h2></div><button class="ib" data-go="tx" title="تحديث">${ic('ref')}</button></div>
+${hist.length?hist.map(t=>{const i=item(t.itemId),c=cust(t.customerId),r=t.total-t.paid;return `<div class="tx"><span class="bd ${t.type=='sale'?'s':''}">${t.type=='sale'?'بيع':'شراء'}</span><div class="m"><b>${esc(i?i.name:'صنف محذوف')}</b><span>${qf.format(t.qty)} ${i?UN[i.unit]:''} × ${nf.format(t.price)}${c?' · '+esc(c.name):''} · ${fd(t.date)}</span></div><div style="text-align:left"><b>${nf.format(t.total)}</b>${r>0?`<div class="bd x" style="margin-top:3px">متبقي ${nf.format(r)}</div>`:''}</div><button class="ib r" data-deltx="${t.id}">${ic('trash',16)}</button></div>`}).join(''):empty('book','دفترك ما زال فارغًا','ستظهر هنا عمليات الشراء والبيع التي سجلتها.')}</div></div>`}
+function sumUp(){const q=+$('#f-qty').value||0,p=+$('#f-price').value||0,t=q*p,pd=$('#f-paid').value===''?t:+$('#f-paid').value;$('#s-t').textContent=nf.format(t);$('#s-p').textContent=nf.format(pd);$('#s-r').textContent=nf.format(Math.max(t-pd,0))}
+async function saveTx(){
+const g=i=>($(i)||{}).value,sale=mode=='sale',itemId=g('#f-item'),qty=+g('#f-qty'),price=+g('#f-price'),cid=g('#f-cust')||'',date=g('#f-date'),total=qty*price,paid=g('#f-paid')===''?total:+g('#f-paid');
+const e=!date?'اختر التاريخ':!itemId?'اختر الصنف':!(qty>0)?'الكمية لازم تكون أكبر من صفر':!(g('#f-price')!==''&&price>=0)?'أدخل سعر الوحدة':sale&&!cid?'اختر العميل':paid<0||paid>total?'المبلغ المدفوع لازم يكون بين صفر والإجمالي':sale&&qty>(balances()[itemId]||0)?'الرصيد المتاح '+qf.format(balances()[itemId]||0)+' فقط':'';
+if(e){$('#f-err').textContent=e;return}
+try{await put('tx',{id:uid(),type:mode,date,itemId,customerId:sale?cid:'',qty,price,total,paid,wh:WH,at:new Date().toISOString()});toast('تم حفظ العملية');if(db)render()}catch(x){toast('تعذّر الحفظ')}}
+/* ---- stock ---- */
+function vStock(){const b=balances(),its=S.items.filter(i=>i.status!='archived');
+return head('الدفتر اليومي','wh','أرصدة المخزون','كمية كل صنف متاحة في كل مخزن، كما هي الآن.',`<button class="btn" data-go="stock">${ic('ref',17)}تحديث</button>`)+
+`<div class="card" style="margin-bottom:22px"><div class="cb" style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:22px 28px"><div><b style="font-size:18px;font-weight:700">عرض حسب المخزن</b><div class="sub" style="font-size:13.5px;margin-top:2px">تُحدَّث الأرصدة من عمليات الشراء والبيع المسجلة.</div></div><select style="width:320px"><option>كل المخازن</option><option>${WH}</option></select></div></div>
+<div class="card tbl"><div class="ch" style="border:0;padding-bottom:14px"><div><h2>ما في المخزن</h2><small style="margin-top:4px">${cf.format(its.length)} رصيد صنف</small></div><span style="color:var(--g)">${ic('box',24)}</span></div>
+${its.length?`<div style="background:var(--soft);padding:16px 28px;font-weight:600">${WH}</div>${its.map(i=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:24px 28px;border-top:1px solid var(--line)"><b style="font-size:18px;font-weight:600">${esc(i.name)}</b><div style="text-align:center;min-width:60px"><b style="font-size:17px;font-weight:600">${qf.format(b[i.id]||0)}</b><div style="font-size:12px;color:var(--mut);font-weight:300">${UN[i.unit]}</div></div></div>`).join('')}`:empty('box','لا توجد أصناف بعد','أضف أصنافك من صفحة الأصناف والعملاء ثم سجّل عمليات الشراء.')}</div>`}
+/* ---- master data ---- */
+function vData(){const isI=tab=='items',src=(isI?S.items:S.customers).filter(r=>(F.status=='all'||(r.status||'active')==F.status)&&(!F.unit||!isI||r.unit==F.unit)&&(!F.q||(r.name+' '+(r.phone||'')).toLowerCase().includes(F.q.toLowerCase())));
+const pages=Math.max(1,Math.ceil(src.length/PS)),pg=Math.min(F.page,pages),rows=src.slice((pg-1)*PS,pg*PS);
+const act=r=>`<div class="acts"><button class="ib r" data-del="${r.id}" title="حذف">${ic('trash')}</button><button class="ib" data-view="${r.id}" title="عرض">${ic('eye')}</button><button class="ib" data-edit="${r.id}" title="تعديل">${ic('edit')}</button><button class="ib" data-arch="${r.id}" title="${(r.status||'active')=='archived'?'استعادة':'أرشفة'}">${ic('arch')}</button></div>`;
+const bd=r=>(r.status||'active')=='archived'?'<span class="bd x">مؤرشف</span>':'<span class="bd dot">نشط</span>';
+const th=isI?'<th style="width:26%">الاسم</th><th style="width:20%">الوحدة</th><th style="width:20%">الوصف</th><th style="width:16%">الحالة</th><th></th>':'<th style="width:26%">الاسم</th><th style="width:20%">الهاتف</th><th style="width:20%">ملاحظات</th><th style="width:16%">الحالة</th><th></th>';
+return head('دفتر البيانات','','الأصناف والعملاء','بيانات أساسية بسيطة، جاهزة للاستخدام في تسجيل العمليات.')+
+`<div class="tabs" style="margin-top:-26px"><button data-tab="items" class="${isI?'on':''}">${ic('boxes',19)}الأصناف</button><button data-tab="customers" class="${isI?'':'on'}">${ic('users',19)}العملاء</button></div>
+<div class="sec"><div><div class="crumb">${ic(isI?'boxes':'users',15)}البيانات الأساسية</div><h2 class="t" style="margin:6px 0 2px">${isI?'الأصناف':'العملاء'}</h2><p class="sub" style="font-size:13.5px">${cf.format(src.length)} سجل</p></div><button class="btn p" data-add>${ic('plus')}${isI?'إضافة صنف':'إضافة عميل'}</button></div>
+<div class="filters"><div class="sw">${ic('search',18)}<input id="q" placeholder="${isI?'ابحث باسم الصنف':'ابحث باسم العميل أو الهاتف'}" value="${esc(F.q)}"></div><select id="fs"><option value="active" ${F.status=='active'?'selected':''}>النشطة</option><option value="archived" ${F.status=='archived'?'selected':''}>المؤرشفة</option><option value="all" ${F.status=='all'?'selected':''}>الكل</option></select>${isI?`<select id="fu"><option value="">كل الفئات</option>${Object.entries(UN).map(([k,v])=>`<option value="${k}" ${F.unit==k?'selected':''}>${v}</option>`).join('')}</select>`:''}</div>
+<div class="card tbl">${rows.length?`<div class="tw"><table><tr>${th}</tr>${rows.map(r=>`<tr class="rows"><td><b style="font-weight:600">${esc(r.name)}</b></td>${isI?`<td>${UN[r.unit]}</td><td style="color:var(--mut)">${esc(r.description)||'—'}</td>`:`<td><span class="mono" style="font-size:14px">${esc(r.phone)}</span></td><td style="color:var(--mut)">${esc(r.notes)||'—'}</td>`}<td>${bd(r)}</td><td>${act(r)}</td></tr>`).join('')}</table></div>`:empty(isI?'boxes':'users',src.length||F.q?'لا نتائج':'لا توجد سجلات بعد',F.q?'جرّب كلمة بحث أخرى.':'اضغط "'+(isI?'إضافة صنف':'إضافة عميل')+'" للبدء.')}
+<div class="pg"><span>صفحة ${cf.format(pg)} من ${cf.format(pages)} — ${cf.format(src.length)} سجل</span><div style="display:flex;gap:8px"><button class="btn sm" data-pg="${pg-1}" ${pg<=1?'disabled':''}>السابق${ic('cl',15)}</button><button class="btn sm" data-pg="${pg+1}" ${pg>=pages?'disabled':''}>التالي${ic('cr',15)}</button></div></div></div>`}
+/* ---- modals ---- */
+const modal=h=>{$('#modal').innerHTML=h?`<div class="ov" data-close><div class="md"><button class="ib x" data-close>${ic('x',20)}</button>${h}</div></div>`:''};
+function form(id){const isI=tab=='items',r=id?(isI?item(id):cust(id)):{};
+modal(`<h3>${id?'تعديل':'إضافة'} ${isI?'صنف':'عميل'}</h3><p class="sub">الحقول المعلّمة بنجمة إلزامية.</p>
+<div class="g2 m"><div class="fld"><label>${isI?'الاسم بالعربية':'اسم العميل'} <i>*</i></label><input id="m-name" value="${esc(r.name)}"></div>
+<div class="fld"><label>${isI?'وحدة القياس':'الهاتف'} <i>*</i></label>${isI?`<select id="m-b">${Object.entries(UN).map(([k,v])=>`<option value="${k}" ${(r.unit||'none')==k?'selected':''}>${v}</option>`).join('')}</select>`:`<input id="m-b" inputmode="tel" value="${esc(r.phone)}">`}</div></div>
+<div class="fld"><label>${isI?'الوصف':'ملاحظات'} <em>(اختياري)</em></label><textarea id="m-c">${esc(isI?r.description:r.notes)}</textarea></div><div class="err" id="m-err" style="margin:10px 0 0"></div>
+<div class="mf"><button class="btn p" data-ok="${id||''}">${id?'حفظ':'إضافة'}</button><button class="btn" data-close>إلغاء</button></div>`);setTimeout(()=>$('#m-name')&&$('#m-name').focus(),30)}
+async function okForm(id){const isI=tab=='items',n=$('#m-name').value.trim(),b=$('#m-b').value.trim(),c=$('#m-c').value.trim();
+if(!n||(!isI&&!b)){$('#m-err').textContent='أكمل الحقول الإلزامية';return}
+const old=id?(isI?item(id):cust(id)):{},o=isI?{...old,id:id||uid(),name:n,unit:b,description:c,status:old.status||'active'}:{...old,id:id||uid(),name:n,phone:b,notes:c,status:old.status||'active'};
+try{await put(tab,o);modal('');toast('تم الحفظ')}catch(e){$('#m-err').textContent='تعذّر الحفظ'}}
+function viewRec(id){const isI=tab=='items',r=isI?item(id):cust(id),b=balances()[id];
+modal(`<h3>${esc(r.name)}</h3><p class="sub" style="margin-bottom:8px">${isI?'تفاصيل الصنف':'تفاصيل العميل'}</p><dl class="dl">${isI?`<dt>الوحدة</dt><dd>${UN[r.unit]}</dd><dt>الرصيد الحالي</dt><dd>${qf.format(b||0)} ${UN[r.unit]}</dd><dt>الوصف</dt><dd>${esc(r.description)||'—'}</dd>`:`<dt>الهاتف</dt><dd class="mono">${esc(r.phone)}</dd><dt>المتبقي عليه</dt><dd>${nf.format(owed(id))}</dd><dt>ملاحظات</dt><dd>${esc(r.notes)||'—'}</dd>`}</dl><div class="mf"><button class="btn" data-close>إغلاق</button></div>`)}
+function confirmDel(kind,id,name){modal(`<h3>تأكيد الحذف</h3><p class="sub">سيتم حذف «${esc(name)}» نهائيًا. هل أنت متأكد؟</p><div class="mf" style="margin-top:0"><button class="btn d" data-yes="${kind}|${id}">حذف</button><button class="btn" data-close>إلغاء</button></div>`)}
+/* ---- events ---- */
+document.addEventListener('click',async e=>{const t=e.target.closest('[data-go],[data-mode],[data-save],[data-deltx],[data-tab],[data-add],[data-edit],[data-view],[data-arch],[data-del],[data-pg],[data-ok],[data-close],[data-yes],[data-logout]');if(!t||t.disabled)return;const d=t.dataset;
+if('logout'in d){LS.del(DEV_KEY);location.reload();return}
+if('go'in d){route=d.go;location.hash=route;F={q:'',status:'active',unit:'',page:1};render();if(sb){try{await load();render()}catch(e){}}}
+else if(d.mode){mode=d.mode;render()}else if('save'in d)saveTx();
+else if(d.deltx)confirmDel('tx',d.deltx,'هذه العملية');
+else if(d.tab){tab=d.tab;F={q:'',status:'active',unit:'',page:1};render()}
+else if('add'in d)form();else if(d.edit)form(d.edit);else if(d.view)viewRec(d.view);
+else if(d.arch){const r=tab=='items'?item(d.arch):cust(d.arch);await put(tab,{...r,status:(r.status||'active')=='archived'?'active':'archived'});toast('تم التحديث')}
+else if(d.del){const r=tab=='items'?item(d.del):cust(d.del),used=S.tx.some(x=>(tab=='items'?x.itemId:x.customerId)==d.del);used?toast('لا يمكن الحذف: عليه عمليات مسجلة. استخدم الأرشفة'):confirmDel(tab,d.del,r.name)}
+else if(d.pg){F.page=+d.pg;render()}
+else if('ok'in d)okForm(d.ok);
+else if(d.yes){const[k,id]=d.yes.split('|');await del(k,id);modal('');toast('تم الحذف')}
+else if('close'in d&&(t===e.target||t.closest('button')))modal('')});
+document.addEventListener('input',e=>{if(['f-qty','f-price','f-paid'].includes(e.target.id))sumUp();if(e.target.id=='q'){F.q=e.target.value;F.page=1;const p=e.target.selectionStart;render();const q=$('#q');q.focus();q.setSelectionRange(p,p)}});
+document.addEventListener('change',e=>{if(e.target.id=='fs'){F.status=e.target.value;F.page=1;render()}if(e.target.id=='fu'){F.unit=e.target.value;F.page=1;render()}});
+document.addEventListener('keydown',e=>{if(e.key=='Escape')modal('')});
+/* ---- boot ---- */
+function startApp(){
+$('#login').hidden=true;$('.app').hidden=false;
+render();
+(async()=>{
+if(!CFG.url||!CFG.key||!window.supabase){$('#view').innerHTML=empty('box','لم يتم ضبط قاعدة البيانات','افتح ملف config.js وضع رابط Supabase والمفتاح العام (anon key).');return}
+sb=window.supabase.createClient(CFG.url,CFG.key);
+try{await load()}catch(e){ready=true}
+render()})()}
+function showLogin(){
+$('#login').hidden=false;$('.app').hidden=true;
+$('#lf').addEventListener('submit',e=>{e.preventDefault();
+const u=$('#l-user').value.trim(),p=$('#l-pass').value;
+if(u===AUTH_USER&&p===AUTH_PASS){LS.set(DEV_KEY,authToken());startApp()}
+else{$('#l-err').textContent='اسم المستخدم أو كلمة المرور غير صحيحة.';$('#l-pass').value='';$('#l-pass').focus()}});
+$('#lf').addEventListener('input',()=>{$('#l-err').textContent=''});
+setTimeout(()=>$('#l-user').focus(),30)}
+deviceTrusted()?startApp():showLogin();
+</script></body></html>
